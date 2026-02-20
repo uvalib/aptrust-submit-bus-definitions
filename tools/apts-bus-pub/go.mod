@@ -1,4 +1,4 @@
-module github.com/uvalib/apts-bus-definitions
+module github.com/uvalib/apts-bus-pub
 
 go 1.26.0
 
@@ -7,7 +7,7 @@ go 1.26.0
 // for local development
 replace github.com/uvalib/apts-bus-definitions/uvaaptsbus => ../../uvaaptsbus
 
-require github.com/uvalib/apts-bus-definitions/uvaaptsbus v0.0.0-00010101000000-000000000000
+require github.com/uvalib/apts-bus-definitions/uvaaptsbus v0.0.0-20260220145628-00f6ae8bbe6c
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.1 // indirect
