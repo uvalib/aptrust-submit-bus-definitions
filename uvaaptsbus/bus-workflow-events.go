@@ -13,10 +13,11 @@ import (
 // event names
 //
 
-var EventWorkCreate = "workflow.work.create"       // work created
-var EventWorkDelete = "workflow.work.delete"       // work deleted
-var EventWorkPublish = "workflow.work.publish"     // work published
-var EventWorkUnpublish = "workflow.work.unpublish" // work unpublished
+var EventSubmissionCreate = "workflow.submission.create"     // work created
+var EventSubmissionBegin = "workflow.submission.begin"       // work created
+var EventSubmissionComplete = "workflow.submission.complete" // work published
+var EventBagBegin = "workflow.bag.began"                     // work deleted
+var EventBagComplete = "workflow.bag.complete"               // work published
 
 //
 // corresponding schema for these events

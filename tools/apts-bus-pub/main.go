@@ -18,16 +18,18 @@ func main() {
 	var eventName string
 	var debug bool
 	var logger *log.Logger
-	var namespace string
-	var oid string
+	var clientId string
+	var submissionId string
+	var bagId string
 	var bulk string
 
 	flag.StringVar(&eventBus, "bus", "", "Event bus name")
 	flag.StringVar(&eventSource, "source", "", "Event source name")
 	flag.StringVar(&eventName, "event", "", "The name of the event")
-	flag.StringVar(&namespace, "ns", "", "The event namespace")
-	flag.StringVar(&oid, "oid", "", "The event object identifier")
-	flag.StringVar(&bulk, "bulk", "", "File of events to publish (name/namespace/oid)")
+	flag.StringVar(&clientId, "cid", "", "The event client identifier")
+	flag.StringVar(&submissionId, "sid", "", "The event submission identifier (optional)")
+	flag.StringVar(&bagId, "bid", "", "The event bag identifier (optional)")
+	flag.StringVar(&bulk, "bulk", "", "File of events to publish (name/client/submission/bag)")
 	flag.BoolVar(&debug, "debug", false, "Log debug information")
 	flag.Parse()
 
@@ -44,8 +46,7 @@ func main() {
 
 	// validate optional parameters
 	if len(bulk) == 0 && (len(eventName) == 0 ||
-		len(namespace) == 0 ||
-		len(oid) == 0) {
+		len(clientId) == 0) {
 		flag.PrintDefaults()
 		os.Exit(1)
 	}
@@ -71,8 +72,8 @@ func main() {
 			lines := strings.Split(string(bytesRead), "\n")
 			for _, line := range lines {
 				attrs := strings.Split(line, "/")
-				if len(attrs) == 3 {
-					err = publishEvent(bus, attrs[0], attrs[1], attrs[2])
+				if len(attrs) == 4 {
+					err = publishEvent(bus, attrs[0], attrs[1], attrs[2], attrs[3])
 					count++
 					if err != nil {
 						break
@@ -85,7 +86,7 @@ func main() {
 			}
 		}
 	} else {
-		err = publishEvent(bus, eventName, namespace, oid)
+		err = publishEvent(bus, eventName, clientId, submissionId, bagId)
 		count++
 	}
 
@@ -97,12 +98,13 @@ func main() {
 	}
 }
 
-func publishEvent(bus uvaaptsbus.UvaBus, name string, namespace string, oid string) error {
+func publishEvent(bus uvaaptsbus.UvaBus, name string, clientId string, submissionId string, bagId string) error {
 
 	ev := uvaaptsbus.UvaBusEvent{
-		EventName:  name,
-		Namespace:  namespace,
-		Identifier: oid,
+		EventName:    name,
+		ClientId:     clientId,
+		SubmissionId: submissionId,
+		BagId:        bagId,
 	}
 	err := bus.PublishEvent(&ev)
 	if err != nil {

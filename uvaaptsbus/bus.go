@@ -20,13 +20,14 @@ var ErrEventPublish = fmt.Errorf("publish error")
 // definitions for more specific events are in their respective files
 var EventTest = "ignore.test.event" // used for testing, should be ignored
 
-// UvaBusEvent -- our event bus
+// UvaBusEvent -- our event bus events
 type UvaBusEvent struct {
-	EventName  string          `json:"name"`       // event name
-	Namespace  string          `json:"namespace"`  // namespace
-	Identifier string          `json:"identifier"` // identifier
-	EventTime  string          `json:"event_time"` // event time
-	Detail     json.RawMessage // remainder of the schema is event specific
+	EventName    string          `json:"name"`          // event name
+	EventTime    string          `json:"event_time"`    // event time
+	ClientId     string          `json:"client_id"`     // client identifier
+	SubmissionId string          `json:"submission_id"` // submission identifier
+	BagId        string          `json:"bag_id"`        // bag identifier (optional)
+	Detail       json.RawMessage // remainder of the schema is event specific
 
 	// other stuff
 }

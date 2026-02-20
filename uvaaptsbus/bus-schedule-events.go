@@ -8,7 +8,7 @@ package uvaaptsbus
 // event names
 //
 
-var EventScheduleEtdIngest = "schedule.etd.ingest" // time to ingest etd content
+var EventScheduleCheckPending = "schedule.bag.checkpending" // check status of pending bags
 
 //
 // end of file

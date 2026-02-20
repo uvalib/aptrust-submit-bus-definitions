@@ -10,10 +10,9 @@ import (
 
 var sourceName = "testing.unit.automated"
 var goodBusName = "uva-apt-submit-bus-staging"
-var goodNamespace = "libraetd"
-var goodIdentifier = "oid:xx-example-xx"
-
-//var goodVTag = "vtag:xx-example-xx"
+var goodClientId = "cid:xx-example-xx"
+var goodSubmissionId = "sid:xx-example-xx"
+var goodBagId = "bid:xx-example-xx"
 
 func TestPublishHappyDay(t *testing.T) {
 	cfg := UvaBusConfig{
@@ -27,9 +26,10 @@ func TestPublishHappyDay(t *testing.T) {
 
 	// create a new event
 	ev := UvaBusEvent{
-		EventName:  EventTest,
-		Namespace:  goodNamespace,
-		Identifier: goodIdentifier,
+		EventName:    EventTest,
+		ClientId:     goodClientId,
+		SubmissionId: goodSubmissionId,
+		BagId:        goodBagId,
 	}
 	err = bus.PublishEvent(&ev)
 	if err != nil {
@@ -41,9 +41,10 @@ func TestEventSerialize(t *testing.T) {
 
 	// create a new event
 	ev := UvaBusEvent{
-		EventName:  EventTest,
-		Namespace:  goodNamespace,
-		Identifier: goodIdentifier,
+		EventName:    EventTest,
+		ClientId:     goodClientId,
+		SubmissionId: goodSubmissionId,
+		BagId:        goodBagId,
 	}
 
 	b, err := ev.Serialize()
