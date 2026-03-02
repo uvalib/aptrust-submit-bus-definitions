@@ -100,11 +100,17 @@ func main() {
 
 func publishEvent(bus uvaaptsbus.UvaBus, name string, clientId string, submissionId string, bagId string) error {
 
-	ev := uvaaptsbus.UvaBusEvent{
-		EventName:    name,
-		ClientId:     clientId,
+	// if we have a submissionId and/or bagId, it is a workflow event
+	wf := uvaaptsbus.UvaWorkflowEvent{
 		SubmissionId: submissionId,
 		BagId:        bagId,
+	}
+
+	jsonStr, _ := wf.Serialize()
+	ev := uvaaptsbus.UvaBusEvent{
+		EventName: name,
+		ClientId:  clientId,
+		Detail:    jsonStr,
 	}
 	err := bus.PublishEvent(&ev)
 	if err != nil {
