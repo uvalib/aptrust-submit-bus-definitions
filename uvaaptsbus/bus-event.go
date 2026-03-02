@@ -10,7 +10,7 @@ import (
 )
 
 func (impl UvaBusEvent) String() string {
-	return fmt.Sprintf("<%s@%s (%s/%s/%s)>", impl.EventName, impl.EventTime, impl.ClientId, impl.BagId, impl.SubmissionId)
+	return fmt.Sprintf("<%s@%s (%s)>", impl.EventName, impl.EventTime, impl.ClientId)
 }
 
 func (impl UvaBusEvent) Serialize() ([]byte, error) {
