@@ -13,17 +13,22 @@ import (
 // event names
 //
 
-var EventSubmissionRegister = "workflow.submission.register" // submission registered
-var EventSubmissionInitiate = "workflow.submission.initiate" // submission initiated
-var EventSubmissionValidate = "workflow.submission.validate" // submission validate
-var EventSubmissionComplete = "workflow.submission.complete" // submission complete
-var EventSubmissionApproved = "workflow.submission.approved" // submission approved
-var EventSubmissionRejected = "workflow.submission.rejected" // submission rejected
-var EventBagInitiate = "workflow.bag.initiate"               // bag initiate
-var EventBagValidate = "workflow.bag.validate"               // bag initiate
-var EventBagComplete = "workflow.bag.complete"               // bag complete
-var EventBagSubmit = "workflow.bag.submit"                   // bag submit (to APT)
-var EventBagAccept = "workflow.bag.accept"                   // bag accepted (by APT)
+var EventSubmissionRegister = "workflow.submission.register"     // submission registered
+var EventSubmissionInitiate = "workflow.submission.initiate"     // submission initiated
+var EventSubmissionValidate = "workflow.submission.validate"     // submission validate
+var EventSubmissionReconcile = "workflow.submission.reconcile"   // submission reconciliation
+var EventSubmissionApprove = "workflow.submission.approve"       // submission to approve
+var EventSubmissionBag = "workflow.submission.bag"               // submission approved
+var EventSubmissionComplete = "workflow.submission.complete"     // submission complete
+var EventSubmissionIncomplete = "workflow.submission.incomplete" // submission incomplete
+var EventSubmissionRejected = "workflow.submission.rejected"     // submission rejected
+
+var EventBagInitiate = "workflow.bag.initiate"  // bag initiate
+var EventBagBuilt = "workflow.bag.built"        // bag has been built
+var EventBagSubmit = "workflow.bag.submit"      // bag submit (to APT)
+var EventBagSubmitted = "workflow.bag.submited" // bag submitted (to APT)
+var EventBagAccepted = "workflow.bag.accepted"  // bag accepted (by APT)
+var EventBagRejected = "workflow.bag.rejected"  // bag rejected (by APT)
 
 //
 // corresponding schema for these events
