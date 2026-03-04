@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/uvalib/apts-bus-definitions/uvaaptsbus"
+	"github.com/uvalib/aptrust-submit-bus-definitions/uvaaptsbus"
 )
 
 // main entry point

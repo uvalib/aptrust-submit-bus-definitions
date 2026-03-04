@@ -6,7 +6,7 @@ GOGET = $(GOCMD) get
 GOMOD = $(GOCMD) mod
 GOFMT = $(GOCMD) fmt
 GOVET = $(GOCMD) vet
-BINNAME = apts-bus-pub
+BINNAME = aptrust-submit-bus-pub
 
 build: darwin
 
