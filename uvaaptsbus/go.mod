@@ -1,4 +1,4 @@
-module github.com/uvalib/apts-bus-definitions/uvaaptsbus
+module github.com/uvalib/aptrust-submit-bus-definitions/uvaaptsbus
 
 go 1.26.0
 
