@@ -39,11 +39,12 @@ var EventBagRejected = "workflow.bag.rejected"  // bag rejected (by APT)
 type UvaWorkflowEvent struct {
 	SubmissionId string `json:"submission_id"` // submission identifier
 	BagId        string `json:"bag_id"`        // bag identifier (optional)
+	Extra        string `json:"extra"`         // event specific (optional)
 }
 
 // standard behavior
 func (impl UvaWorkflowEvent) String() string {
-	return fmt.Sprintf("(%s/%s)>", impl.SubmissionId, impl.BagId)
+	return fmt.Sprintf("(%s/%s/%s)>", impl.SubmissionId, impl.BagId, impl.Extra)
 }
 
 func (impl UvaWorkflowEvent) Serialize() ([]byte, error) {
