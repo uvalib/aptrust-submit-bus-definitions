@@ -7,7 +7,7 @@ go 1.26.0
 // for local development
 replace github.com/uvalib/aptrust-submit-bus-definitions/uvaaptsbus => ../../uvaaptsbus
 
-require github.com/uvalib/aptrust-submit-bus-definitions/uvaaptsbus v0.0.0-20260303144802-713a35019895
+require github.com/uvalib/aptrust-submit-bus-definitions/uvaaptsbus v0.0.0-20260311131233-98a8b27a0f2d
 
 require (
 	github.com/aws/aws-sdk-go-v2 v1.41.3 // indirect

@@ -7,10 +7,11 @@ package uvaaptsbus
 import (
 	"context"
 	"fmt"
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/service/cloudwatchevents/types"
 	"log"
 	"time"
+
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/service/cloudwatchevents/types"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudwatchevents"
@@ -68,7 +69,7 @@ func (impl uvaBusImpl) PublishEvent(event *UvaBusEvent) error {
 	}
 
 	// publish it
-	_, err = impl.client.PutEvents(context.Background(),
+	res, err := impl.client.PutEvents(context.Background(),
 		&cloudwatchevents.PutEventsInput{
 			Entries: []types.PutEventsRequestEntry{
 				{
@@ -82,6 +83,9 @@ func (impl uvaBusImpl) PublishEvent(event *UvaBusEvent) error {
 		})
 	if err != nil {
 		return fmt.Errorf("%q: %w", err, ErrEventPublish)
+	}
+	if res.FailedEntryCount > 0 {
+		return ErrEventPublish
 	}
 	return nil
 }
