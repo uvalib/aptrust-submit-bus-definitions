@@ -1,5 +1,5 @@
 //
-// Events related to scheduling
+// Events related to explicit commands
 //
 
 package uvaaptsbus
