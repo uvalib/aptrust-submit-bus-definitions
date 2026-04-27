@@ -23,15 +23,13 @@ var EventSubmissionReconcileFail = "workflow.submission.reconcilefail" // submis
 var EventSubmissionApprove = "workflow.submission.approve"             // submission to approve
 var EventSubmissionApproved = "workflow.submission.approved"           // submission approved
 var EventSubmissionDeclined = "workflow.submission.declined"           // submission declined
-// var EventSubmissionBag = "workflow.submission.bag"                     // submission approved
-var EventSubmissionComplete = "workflow.submission.complete"     // submission complete
-var EventSubmissionIncomplete = "workflow.submission.incomplete" // submission incomplete
-//var EventSubmissionRejected = "workflow.submission.rejected"           // submission rejected
+var EventSubmissionComplete = "workflow.submission.complete"           // submission complete
+var EventSubmissionIncomplete = "workflow.submission.incomplete"       // submission incomplete
+var EventSubmissionAbandoned = "workflow.submission.abandoned"         // submission rejected
 
 // bag events
-var EventBagInitiate = "workflow.bag.initiate" // bag initiate
-var EventBagBuilt = "workflow.bag.built"       // bag has been built
-// var EventBagSubmit = "workflow.bag.submit"       // bag submit (to APT)
+var EventBagInitiate = "workflow.bag.initiate"   // bag initiate
+var EventBagBuilt = "workflow.bag.built"         // bag has been built
 var EventBagSubmitted = "workflow.bag.submitted" // bag submitted (to APT)
 var EventBagAccepted = "workflow.bag.accepted"   // bag accepted (by APT)
 var EventBagRejected = "workflow.bag.rejected"   // bag rejected (by APT)
