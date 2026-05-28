@@ -22,10 +22,10 @@ var EventSubmissionReconcile = "workflow.submission.reconcile"         // submis
 var EventSubmissionReconcileFail = "workflow.submission.reconcilefail" // submission reconciliation failure
 var EventSubmissionApprove = "workflow.submission.approve"             // submission to approve
 var EventSubmissionApproved = "workflow.submission.approved"           // submission approved
-var EventSubmissionDeclined = "workflow.submission.declined"           // submission declined
-var EventSubmissionComplete = "workflow.submission.complete"           // submission complete
-var EventSubmissionIncomplete = "workflow.submission.incomplete"       // submission incomplete
-var EventSubmissionAbandoned = "workflow.submission.abandoned"         // submission rejected
+// var EventSubmissionDeclined = "workflow.submission.declined"           // submission declined
+var EventSubmissionComplete = "workflow.submission.complete"     // submission complete
+var EventSubmissionIncomplete = "workflow.submission.incomplete" // submission incomplete
+var EventSubmissionAbandoned = "workflow.submission.abandoned"   // submission rejected
 
 // bag events
 var EventBagInitiate = "workflow.bag.initiate"   // bag initiate
